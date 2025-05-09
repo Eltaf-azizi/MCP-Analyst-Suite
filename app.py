@@ -121,3 +121,22 @@ def generate_pdf_report(data, pdf_path):
     
     pdf.output(pdf_path)
 
+
+
+
+
+def ecommerce_swot_analyzer(product_name: str):
+    def scrape_data(product_name):
+        query = f"{product_name} site:amazon.in OR site:flipkart.com"
+        url = ""
+        params = {
+            "q": query,
+            "key": GOOGLE_API_KEY,
+            "cx": SEARCH_ENGINE_ID,
+        }
+
+        res = requests.get(url, params=params)
+        if res.status_code != 200:
+            raise Exception("Google Search API failed: " + res.text)
+        
+        data.res.json()
