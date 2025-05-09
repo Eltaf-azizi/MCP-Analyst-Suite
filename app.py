@@ -72,3 +72,20 @@ def analyze():
     
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
+
+
+
+def generate_pdf_report(data, pdf_path):
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font("Arial", 'B', 16)
+    pdf.call(200, 10, f"SWOT Analysis Report", ln=True, align='C')
+
+
+    pdf.set_font("Arial", 'B', 14)
+    pdf.cell(200, 10, f"Product: {data['product']}", ln=True)
+    pdf.set_font("Arial", size=12)
+
+
+    summary = data.get("summary", {})
