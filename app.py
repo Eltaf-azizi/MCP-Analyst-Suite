@@ -89,3 +89,20 @@ def generate_pdf_report(data, pdf_path):
 
 
     summary = data.get("summary", {})
+    if summary:
+        pdf.ln(5)
+        pdf.cell(200, 10, "Summary:", ln=True)
+        for key, value in summary.items():
+            pdf.cell(200, 10, f"{key.replace('_', ' ').title()}: {value}", ln=True)
+
+        
+    
+    for category in ["Strengths", "Weakness", "Opportunities", "Threads"]:
+        pdf.ln(5)
+        pdf.set_font("Arial", 'B', 12)
+        pdf.cell(200, 10, f"{category}:", ln=True)
+        pdf.set_font("Arial", size=11)
+
+        for item in data["analysis"].get(category, []):
+            safe_item = unicodedata.normalize("NFKD", item).encode("latin-1", "ignore").decode("latin-1", "ignore")
+            pdf.multi_cell(0, 10, f"- {safe_item}")
