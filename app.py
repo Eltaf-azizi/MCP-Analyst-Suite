@@ -1,7 +1,7 @@
 import os
 import base64
 from datetime import datetime
-from flask import Flask
+from flask import Flask, json, jsonify, request
 
 
 app = Flask(__name__)
@@ -57,3 +57,18 @@ def analyze():
 
         with open(result_path, 'w', encoding='utf-8') as f:
             json.dump(analysis_result, f, ensure_ascii=False, indent=4)
+
+        
+        # Save the analysis in a PDF
+        pdf_filename = f"{safe_name}_swot_{timestamp}.pdf"
+        pdf_path = os.path.join(PDF_DIR, pdf_filename)
+        generate_pdf_report(analysis_result, pdf_path)
+
+
+        analysis_result['local_file'] = result_path
+        analysis_result['pdf_file'] = pdf_path
+
+        return jsonify(analysis_result)
+    
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
