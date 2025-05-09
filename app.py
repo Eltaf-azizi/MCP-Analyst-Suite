@@ -106,3 +106,18 @@ def generate_pdf_report(data, pdf_path):
         for item in data["analysis"].get(category, []):
             safe_item = unicodedata.normalize("NFKD", item).encode("latin-1", "ignore").decode("latin-1", "ignore")
             pdf.multi_cell(0, 10, f"- {safe_item}")
+
+
+
+
+    # Insert chart if available
+    if data.get("chart"):
+        image_data = base64.b64decode(data["chart"])
+        chart_path = os.path.join(tempfile.gettempdir(), "chart.png")
+        with open(chart_path, "wb") as f:
+            f.write(image_data)
+        
+        pdf.image(chart_path, x=30, w=150)
+    
+    pdf.output(pdf_path)
+
