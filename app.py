@@ -37,4 +37,23 @@ def load_sentiment_model():
 
 @app.route('/analyze', methods=['POST'])
 def analyze():
+    data = request.json
+    if not data or 'product_name' not in data:
+        return jsonify({"error": "Product name is required"}), 400
     
+
+    product_name = data['product_name']
+    try:
+        # Get full analysis with chart
+        analysis_result = ecommerce_swot_analyzer(product_name)
+
+
+        # Save analysis result to local directory
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        safe_name = product_name.replace(" ", "_").replace("/", "_")
+        result_filename = f"{safe_name}_swot_{timestamp}.json"
+        result_path = os.path.join(RESULTS_DIR, result_filename)
+
+
+        with open(result_path, 'w', encoding='utf-8') as f:
+            json.dump(analysis_result, f, ensure_ascii=False, indent=4)
