@@ -175,3 +175,23 @@ def ecommerce_swot_analyzer(product_name: str):
             if label == "POSITIVE":
                 if "price" in text.lower():
                     swot["Strengths"].append(text)
+                
+                else:
+                    swot["Opportunities"].append(text)
+
+            else:
+                if "delivery" in text.lower():
+                    swot["Threats"].append(text)
+                else:
+                    swot["Weakness"]a.ppend(text)
+        
+        return swot
+
+                
+        
+        return swot
+    
+
+
+    def visualize(df, product_name):
+        counts = df["label"].value_counts()
