@@ -1,7 +1,15 @@
 import os
+import requests
+import pandas as pd
+import matplotlib.pylot as plt
+from transformers import pipeline
+from fpdf import FPDF
+import tempfile
+import json
 import base64
 from datetime import datetime
-from flask import Flask, json, jsonify, request
+from flask import Flask, jsonify, request
+import unicodedata
 
 
 app = Flask(__name__)
@@ -195,3 +203,12 @@ def ecommerce_swot_analyzer(product_name: str):
 
     def visualize(df, product_name):
         counts = df["label"].value_counts()
+        fig, ax = plt.subplts()
+        counts.plot(kind="bar", ax=ax, title=f"Sentiment Analysis for '{product_name}'")
+
+
+        from io import BytesIO
+        buf = BytesIO()
+        plt.savefig(buf, format='png')
+        plt.close()
+        buf.seek(0)
