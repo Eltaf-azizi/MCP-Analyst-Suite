@@ -228,7 +228,22 @@ def ecommerce_swot_analyzer(product_name: str):
             "product": product_name,
             "analysis": {
                 "Strengths": [
-                    f"Brand recognition for (product_name)"
+                    f"Brand recognition for (product_name)",
+                    "Quality build and materials",
+                    "Strong ecosystem integration"
+                ],
+                "Weaknesses": [
+                    "Premium pricing limiting market penetration",
+                    "Limited customization copared to competitors",
+                    "Proprietary accessories and components"
+                ],
+                "Opportunities": [
+                    "Emerging markets expension",
+                    "Services revenue growth",
+                    "Sustainability initiatives appeal"
+                ],
+                "Threats": [
+                    ""
                 ]
             }
         }
