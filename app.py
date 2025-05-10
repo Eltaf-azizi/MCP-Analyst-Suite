@@ -212,3 +212,23 @@ def ecommerce_swot_analyzer(product_name: str):
         plt.savefig(buf, format='png')
         plt.close()
         buf.seek(0)
+
+
+        img_base64 = base64.b64encode(buf.read()).decode('utf-8')
+        return img_base64
+    
+
+
+    product_data = scrape_data(product_name)
+    reviews = [p["reviews"] for p in product_name if p.get("reviews")]
+
+
+    if not reviews:
+        return {
+            "product": product_name,
+            "analysis": {
+                "Strengths": [
+                    f"Brand recognition for (product_name)"
+                ]
+            }
+        }
