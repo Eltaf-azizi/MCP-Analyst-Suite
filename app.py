@@ -139,4 +139,19 @@ def ecommerce_swot_analyzer(product_name: str):
         if res.status_code != 200:
             raise Exception("Google Search API failed: " + res.text)
         
-        data.res.json()
+
+        data = res.json()
+        items = data.get("items", [])
+        results = []
+        for item in items:
+            results.append({
+                'title': item.get("title"),
+                "link": item.get("link"),
+                "price": "$50",
+                "source": "Amazon" if "amazon" in item.get("link", " ") else "Flipkart",
+                "rating": "4.2",
+                "reviews": item.get("snippet")
+            })
+        return results
+    
+
