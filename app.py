@@ -155,3 +155,23 @@ def ecommerce_swot_analyzer(product_name: str):
         return results
     
 
+
+    def analyze_sentiment(reviews):
+        model = load_sentiment_model()
+        sentiments = model(reviews)
+        df = pd.DataFrame(sentiments)
+        df["review"] = reviews
+        return df
+    
+
+
+    def map_to_swot(df):
+        swot = {"Strengths": [], "Weakness": [], "Opportunities": [], "Threats": []}
+
+        for _, row in df.iterrows():
+            text = row["review"]
+            label = row["label"]
+
+            if label == "POSITIVE":
+                if "price" in text.lower():
+                    swot["Strengths"].append(text)
