@@ -43,3 +43,21 @@ def text_api_endpoint():
 
         with open('api_result.json', 'w') as f:
             json.dump(result_copy, f, indent=2)
+
+
+
+        # Print the SWOT analysis
+        print("\n===== API RESPONSE =====")
+        print(f"Status code: {response.status_code}")
+        print(f"Product: {result['product']}")
+
+
+        # Display SWOT components
+        for category in ["Strengths", "Weaknesses", "Opportunities", "Threats"]:
+            print(f"\n{category}:")
+            items = result['analysis'].get(category, [])
+            for item in items[3]:
+                print(f"- {item}")
+            
+        
+        print("\n Results saved to api_result.json")
