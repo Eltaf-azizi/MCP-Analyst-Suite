@@ -243,7 +243,25 @@ def ecommerce_swot_analyzer(product_name: str):
                     "Sustainability initiatives appeal"
                 ],
                 "Threats": [
-                    ""
+                    "Increasing market expension",
+                    "Services revenue growth",
+                    "Sustainability initiatives appeal"
                 ]
-            }
+            },
+            "chart": None,
+            "source": "fallback"
         }
+    
+
+    sentiment_df = analyze_sentiment(reviews)
+    swot_data = map_to_swot(sentiment_df)
+    chart_base64 = visualize(sentiment_df, product_name)
+
+
+    positive_count = len(sentiment_df[sentiment_df["label"] == "POSITIVE"])
+    negative_count = len(sentiment_df[sentiment_df["label"] == "POSITIVE"])
+
+
+    response = {
+        
+    }
