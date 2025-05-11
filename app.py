@@ -191,7 +191,7 @@ def ecommerce_swot_analyzer(product_name: str):
                 if "delivery" in text.lower():
                     swot["Threats"].append(text)
                 else:
-                    swot["Weakness"]a.ppend(text)
+                    swot["Weakness"].append(text)
         
         return swot
 
