@@ -263,5 +263,22 @@ def ecommerce_swot_analyzer(product_name: str):
 
 
     response = {
-        
+        "product": product_name,
+        "analysis": swot_data,
+        "chart": chart_base64,
+        "summary": {
+            "total_reviews": len(reviews),
+            "positive": positive_count,
+            "negative": negative_count,
+            "positive_percentage": round((positive_count / len(reviews)) * 100, 1)
+        },
+        "source": "api"
     }
+
+    return response
+
+
+
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
