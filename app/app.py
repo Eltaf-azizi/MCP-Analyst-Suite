@@ -259,7 +259,7 @@ def ecommerce_swot_analyzer(product_name: str):
 
 
     positive_count = len(sentiment_df[sentiment_df["label"] == "POSITIVE"])
-    negative_count = len(sentiment_df[sentiment_df["label"] == "POSITIVE"])
+    negative_count = len(sentiment_df[sentiment_df["label"] == "NEGATIVE"])
 
 
     response = {
