@@ -61,3 +61,11 @@ def test_api_endpoint():
             
         
         print("\n Results saved to api_result.json")
+
+
+
+
+    except Exception as e:
+        print(f"rror calling API: {str(e)}")
+        import traceback
+        traceback.print_exc()
