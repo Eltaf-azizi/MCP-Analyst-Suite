@@ -24,3 +24,23 @@ def test_api_endpoint():
             json = {"product_name": product_name},
             headers = {"Content-Type": "application/json"}
         )
+        
+
+        # Check if successful
+        response.raise_for_status()
+
+
+        # Parse the json response
+        result = response.json()
+
+
+        # Save result to a file (excluding the chart which can be large)
+        result_copy = result.copy()
+        
+        if 'chart' in result_copy:
+            result_copy['chart'] = "<<base64 image data removed for display>>"
+
+
+        with open('api_result.json', 'w') as f:
+            json.dump(result_copy, f, indent=2)
+
