@@ -64,3 +64,21 @@ Automated SWOT (Strengths, Weaknesses, Opportunities, Threats) analysis system f
 ### 2. Competitive Intelligence (MCP Inspector)
 ![deepseek_mermaid_20250514_77e174](https://github.com/user-attachments/assets/ddb231ae-b1f6-442c-9ed3-45a1a775b8d3)
 
+## 🚀 Installation
+### System Requirements
+
+ - Minimum: 4 vCPU, 8GB RAM, 10GB SSD
+
+ - Recommended: 8 vCPU, 16GB RAM, NVMe storage
+
+
+       # With Poetry (recommended)
+       poetry install --with prod, dev
+       
+       # With pip
+       pip install -r requirements/production.txt
+
+
+
+
+
