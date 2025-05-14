@@ -80,5 +80,11 @@ Automated SWOT (Strengths, Weaknesses, Opportunities, Threats) analysis system f
 
 
 
+## ⚙️ Configuration
+### Environment Variables
 
+       # .env.production
+       CLAUDE_API_KEY=sk-ant-prod-abc123
+       MCP_API_ENDPOINT=https://api.mcp-inspector.com/v3
+       PDF_COMPRESSION_LEVEL=6  # 0-9
 
