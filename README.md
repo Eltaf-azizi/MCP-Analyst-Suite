@@ -61,3 +61,6 @@ Automated SWOT (Strengths, Weaknesses, Opportunities, Threats) analysis system f
        tone="professional"  # casual/professional
        )
 
+### 2. Competitive Intelligence (MCP Inspector)
+![deepseek_mermaid_20250514_77e174](https://github.com/user-attachments/assets/ddb231ae-b1f6-442c-9ed3-45a1a775b8d3)
+
