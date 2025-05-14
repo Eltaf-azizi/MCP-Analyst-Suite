@@ -45,3 +45,19 @@ Automated SWOT (Strengths, Weaknesses, Opportunities, Threats) analysis system f
     ├── pyproject.toml                # Poetry config
     ├── .python-version               # 3.12.1
     └── main.py                       # CLI interface
+
+## 🌟 Key Features
+
+### 1. AI-Powered SWOT Analysis
+ - Claude 3 Integration
+
+
+       from claude_handler import SWOTGenerator
+                     
+       swot = SWOTGenerator(api_key=os.getenv('CLAUDE_KEY'))
+       analysis = swot.generate(
+       product_data=product_json,
+       language="en",  # 12 languages supported
+       tone="professional"  # casual/professional
+       )
+
