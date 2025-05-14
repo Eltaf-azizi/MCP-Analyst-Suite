@@ -8,3 +8,40 @@ Automated SWOT (Strengths, Weaknesses, Opportunities, Threats) analysis system f
 3. Generates print-ready PDF reports with actionable recommendations
 
 4. Supports multi-marketplace analysis (Amazon, Shopify, eBay)
+
+       # Core Analysis Pipeline
+       from mcp_swot import ProductAnalyzer
+
+       analyzer = ProductAnalyzer(
+       ai_model="claude-3-sonnet", 
+       mcp_version="2.4"
+       )
+       report = analyzer.run_analysis(
+       product_id="B08N5KWB9H",
+       analysis_mode="extended"  # quick/standard/extended
+       )
+       report.export("analysis.pdf")
+
+## 🏗 Project Structure
+
+    mcp-swot-analyzer/
+    ├── app/                          # Report generation subsystem
+    │   └── pdf_reports/              # PDF engine (WeasyPrint)
+    │       ├── app.py                # 600+ LoC PDF builder
+    │       ├── templates/            # Jinja2 templates
+    │       │   ├── swot_template.html
+    │       │   └── marketplace_styles/
+    │       ├── test_swot.py          # 92% test coverage
+    │       └── requirements.txt      # PDF-specific deps
+    ├── MCP.model/                    # Machine learning models
+    │   ├── price_model_v3.pkl        # XGBoost 2.0
+    │   └── review_sentiment.h5       # TensorFlow 2.15
+    ├── tools/                        # Core analysis logic
+    │   ├── __init__.py
+    │   ├── mcp_swot.py               # Main 2000+ LoC
+    │   └── data_connectors/          # Marketplace adapters
+    │       ├── amazon_api.py         # SP-API wrapper
+    │       └── shopify_scraper.py    # Playwright-based
+    ├── pyproject.toml                # Poetry config
+    ├── .python-version               # 3.12.1
+    └── main.py                       # CLI interface
