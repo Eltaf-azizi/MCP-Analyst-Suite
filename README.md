@@ -110,3 +110,23 @@ Automated SWOT (Strengths, Weaknesses, Opportunities, Threats) analysis system f
            logo_url: "https://yourdomain.com/logo.png"
            primary_color: "#3a86ff"
 
+
+## 📊 Sample Report Structure
+
+       1. EXECUTIVE SUMMARY
+          - Product Rating: 4.7/5 (Top 15%)
+          - Price Competitiveness: 8.2/10
+       
+       2. SWOT MATRIX
+          [Strengths]
+          - 30% faster shipping than competitors
+          - Verified authenticity badge
+       
+          [Opportunities]  
+          - Untapped German market (25% price premium)
+       
+       3. RECOMMENDATIONS
+          - Bundle with complementary products (+12% conversion)
+          - Optimize for "giftable" keywords
+
+
