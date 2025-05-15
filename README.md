@@ -139,3 +139,14 @@ Automated SWOT (Strengths, Weaknesses, Opportunities, Threats) analysis system f
 
        # Run full test suite
        pytest --cov=app --cov=tools --cov-report=html
+
+
+## 🙌 Contributing
+Found a bug? Want to add a feature? Contributions are welcome!
+
+1. Fork the repository.
+2. Create a new branch.
+3. Submit a pull request with your improvements.
+
+
+<h3 align="center">Happy Coding!</h3>
