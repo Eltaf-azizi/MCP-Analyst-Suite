@@ -64,6 +64,13 @@ Automated SWOT (Strengths, Weaknesses, Opportunities, Threats) analysis system f
 ### 2. Competitive Intelligence (MCP Inspector)
 ![deepseek_mermaid_20250514_77e174](https://github.com/user-attachments/assets/ddb231ae-b1f6-442c-9ed3-45a1a775b8d3)
 
+### 3. Dynamic PDF Reporting  
+- **Output Formats**: PDF/A-3, PDF/UA  
+- **Resolution**: 300 DPI (print-ready)  
+- **Color Profiles**: CMYK, Pantone support  
+- **Security**: Password protection, Watermarking  
+
+
 ## 🚀 Installation
 ### System Requirements
 
@@ -88,8 +95,18 @@ Automated SWOT (Strengths, Weaknesses, Opportunities, Threats) analysis system f
        MCP_API_ENDPOINT=https://api.mcp-inspector.com/v3
        PDF_COMPRESSION_LEVEL=6  # 0-9
 
-### 3. Dynamic PDF Reporting  
-- **Output Formats**: PDF/A-3, PDF/UA  
-- **Resolution**: 300 DPI (print-ready)  
-- **Color Profiles**: CMYK, Pantone support  
-- **Security**: Password protection, Watermarking  
+## YAML Configuration
+
+       # config/analysis.yaml
+       analysis:
+         depth: extended
+         markets: ["amazon_us", "shopify"]
+         risk_factors:  
+           - price_volatility
+           - review_velocity
+       
+       pdf:
+         branding:
+           logo_url: "https://yourdomain.com/logo.png"
+           primary_color: "#3a86ff"
+
